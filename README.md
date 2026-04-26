@@ -2,7 +2,9 @@
 
 SignalCut turns AI-search visibility gaps into source-backed video campaigns.
 
-Live app: [https://signalcut.pages.dev](https://signalcut.pages.dev)
+## Deployment
+
+Live production app: [https://signalcut.pages.dev](https://signalcut.pages.dev)
 
 Built at Big Berlin Hack for teams that need to turn distribution insight into something they can ship immediately.
 
