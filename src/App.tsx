@@ -271,7 +271,7 @@ function App() {
             SignalCut
           </div>
           <h1>Turn live AI-search gaps into video campaigns.</h1>
-          <p>Source-backed campaign strategy for teams competing inside AI answers.</p>
+          <p>Find where AI search overlooks your brand, then turn the gap into a video campaign.</p>
           <SponsorStrip />
           <HackathonPhoto compact />
           <div className="auth-actions">
