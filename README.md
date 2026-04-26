@@ -163,17 +163,6 @@ Production URL:
 
 [https://signalcut.pages.dev](https://signalcut.pages.dev)
 
-## Demo Video
-
-The generated demo artifacts are intentionally ignored by Git because they are binary outputs.
-
-Current local demo exports:
-
-- `artifacts/demo-capture/signalcut-demo-2min-audio.mp4`
-- `artifacts/demo-capture/signalcut-demo-2min-silent.mp4`
-
-Both are 1920x1080 and two minutes long. The audio version includes narration and states the deployed URL.
-
 ## Security Notes
 
 - Do not commit `.dev.vars`, `.env.local`, `.wrangler/`, `dist/`, `node_modules/`, or `artifacts/`.
@@ -197,4 +186,3 @@ npm run typecheck  # Typecheck app and functions
 - README documents partner technologies
 - README documents APIs and deployment
 - Source code avoids committed secrets
-- Two-minute demo video generated locally
