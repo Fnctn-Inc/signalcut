@@ -752,12 +752,113 @@ textarea {
   margin-top: 8px;
 }
 
+.hera-output {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fbfcfa;
+  padding: 12px;
+}
+
+.hera-output.ready {
+  border-color: rgba(15, 122, 90, 0.34);
+  box-shadow: 0 10px 28px rgba(15, 122, 90, 0.08);
+}
+
+.hera-output-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.hera-output-header span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hera-output-header strong {
+  display: block;
+  margin-top: 3px;
+  line-height: 1.25;
+}
+
+.status-pill {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 820;
+}
+
+.status-pill.completed {
+  background: #e8f5ee;
+  color: var(--good);
+}
+
+.status-pill.failed {
+  background: #fae4e4;
+  color: var(--danger);
+}
+
+.hera-player-shell {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background:
+    linear-gradient(135deg, rgba(16, 20, 16, 0.96), rgba(18, 45, 36, 0.96));
+}
+
 .hera-video {
   width: 100%;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
+  display: block;
+  max-height: 560px;
   background: #0f130f;
+}
+
+.play-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 40px;
+  margin-top: 10px;
+  border: 1px solid var(--surface-3);
+  border-radius: var(--radius);
+  background: var(--surface-3);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 820;
+}
+
+.play-link.secondary {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.hera-rendering {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px dashed var(--line);
+  border-radius: 7px;
+  background: var(--surface-2);
+  padding: 12px;
+}
+
+.hera-rendering p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 @media (max-width: 1180px) {

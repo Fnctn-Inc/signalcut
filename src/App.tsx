@@ -415,19 +415,7 @@ function App() {
                   {copied === "hera" ? <Check size={16} /> : <Clipboard size={16} />}
                   {copied === "hera" ? "Copied" : "Copy Hera prompt"}
                 </button>
-                <div className="share-pack">
-                  <strong>Hera job</strong>
-                  <p>{campaign.heraJob.status}</p>
-                  {campaign.heraJob.outputUrl && String(campaign.heraJob.outputUrl).includes(".mp4") && (
-                    <video className="hera-video" controls src={campaign.heraJob.outputUrl} />
-                  )}
-                  {campaign.heraJob.outputUrl && !String(campaign.heraJob.outputUrl).includes(".mp4") && (
-                    <a href={campaign.heraJob.outputUrl} target="_blank" rel="noreferrer">
-                      <ExternalLink size={13} />
-                      Open Hera project
-                    </a>
-                  )}
-                </div>
+                <HeraOutput job={campaign.heraJob} title={campaign.selectedVariant.title} />
               </div>
               <ExportPanel campaign={campaign} />
             </>
@@ -442,6 +430,51 @@ function App() {
       </section>
       <BuildCredit />
     </main>
+  );
+}
+
+function HeraOutput({ job, title }: { job: HeraJob; title: string }) {
+  const isMp4 = Boolean(job.outputUrl && String(job.outputUrl).includes(".mp4"));
+  const isDone = job.status === "completed";
+  const statusLabel = isDone ? "Ready to play" : job.status === "failed" ? "Needs attention" : "Rendering";
+
+  return (
+    <div className={`hera-output ${isDone ? "ready" : ""}`}>
+      <div className="hera-output-header">
+        <div>
+          <span>Generated video</span>
+          <strong>{title}</strong>
+        </div>
+        <span className={`status-pill ${job.status}`}>{statusLabel}</span>
+      </div>
+
+      {isMp4 && job.outputUrl ? (
+        <>
+          <div className="hera-player-shell">
+            <video className="hera-video" controls preload="metadata" src={job.outputUrl} />
+          </div>
+          <a className="play-link" href={job.outputUrl} target="_blank" rel="noreferrer">
+            <Play size={16} />
+            Open playable MP4
+          </a>
+        </>
+      ) : (
+        <div className="hera-rendering">
+          <Loader2 size={18} className={job.status === "failed" ? "" : "spin"} />
+          <div>
+            <strong>{job.status === "failed" ? "Hera render failed" : "Hera is rendering the video"}</strong>
+            <p>{job.status === "failed" ? "Try generating again with a shorter prompt." : "The player appears here automatically when the MP4 is ready."}</p>
+          </div>
+        </div>
+      )}
+
+      {job.outputUrl && !isMp4 && (
+        <a className="play-link secondary" href={job.outputUrl} target="_blank" rel="noreferrer">
+          <ExternalLink size={16} />
+          Open Hera project
+        </a>
+      )}
+    </div>
   );
 }
 
